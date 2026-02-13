@@ -24,7 +24,8 @@
 }
 
 .wheather-info{
-    display: flex;
+    display: ;
     justify-content: space-between;
     border: 2px solid green;
+    min-height: 100px;
 }
