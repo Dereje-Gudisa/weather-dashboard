@@ -1,0 +1,30 @@
+.container{
+    border: 2px solid black; 
+    width: 80%;
+    height: auto;
+    display:flex;
+    justify-content: space-between;
+    align-items:flex-start;
+}
+.side-bar{
+    border: 2px solid green;
+
+}  
+.forecast-container{
+    border: 2px solid navy;
+
+}
+.side-bar{
+    border: 2px solid red;
+}
+.display-result{
+    border: 2px solid brown;
+    display: flex;
+    flex-direction: column;
+}
+
+.wheather-info{
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid green;
+}
