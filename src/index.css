@@ -1,31 +1,74 @@
 .container{
-    border: 2px solid black; 
     width: 80%;
-    height: auto;
+    height:auto;
     display:flex;
     justify-content: space-between;
     align-items:flex-start;
+    background-color: whitesmoke;
 }
-.side-bar{
-    border: 2px solid green;
 
-}  
 .forecast-container{
-    border: 2px solid navy;
 
 }
 .side-bar{
-    border: 2px solid red;
+    min-height: 200px;
+    min-width: 150px;
 }
 .display-result{
-    border: 2px solid brown;
     display: flex;
     flex-direction: column;
 }
 
 .wheather-info{
-    display: ;
     justify-content: space-between;
-    border: 2px solid green;
     min-height: 100px;
+}
+
+.input-field{
+    min-width: 100px;
+    height: 33px;
+    border:none;
+    background-color:rgb(228, 228, 228);
+    font-size: 1rem;
+}
+
+.search-btn{
+    min-width: 80px;
+    height: 35px;
+    border:none;
+    background-color: green;
+    color:white;
+    font-size:1rem;
+}
+
+.weather-headings{
+    color:rgb(81, 81, 81);
+
+}
+
+.weather-headings-container{
+    background-color: rgb(241, 241, 241);
+}
+
+.recent-headings{
+    margin:5px;
+    font-size: 1.5rem;
+}
+.recent-lists{
+    margin: 5px;
+}
+
+.each-recent-list{
+    margin-top:10px;
+    font-size: 1.1rem;
+    background-color: rgb(123, 125, 132);
+    text-align: center;
+    min-width:fit-content;
+    color:white;
+    margin: 10px;
+    padding: 2px;
+}
+
+.messages{
+    color:grey;
 }

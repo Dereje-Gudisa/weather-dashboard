@@ -1,18 +1,19 @@
 import { useState } from "react";
 
-function SearchBar({ setRecentData }){
+function SearchBar({ setRecentData, weather, setWeather }){
 
     const [city, setCity] = useState("");
-    const [weather, setWeather] = useState("");
+    //const [weather, setWeather] = useState("");   
+    const [error, setError] = useState(false);
 
     async function getWeatherData(city){
         const apiKey = "813f9e6b231ee48528557a605da1cb88";
         const apiUrl =  `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
         
         const response = await fetch(apiUrl);
-
         if(!response.ok){
             throw new Error("it seems data not found");
+
         }
          
         return await response.json();
@@ -26,10 +27,11 @@ function SearchBar({ setRecentData }){
             try{
                 const weatherData = await getWeatherData(city);
                 displayWeatherData(weatherData);
+                setError(false);
             }
             catch(error){
                 console.error(error)
-                    
+                setError(true)
             }
         };
     };
@@ -48,13 +50,23 @@ function SearchBar({ setRecentData }){
     return(
         <div>
             <form onSubmit={handleSubmit} className="seach-bar">
-                <input type="text" className="" placeholder="Enter city name..." onChange={(e)=> setCity(e.target.value)}  value={city}/>
-                <button type="submit">Search</button>
+                <input type="text" className="input-field" placeholder="Enter city name..." onChange={(e)=> setCity(e.target.value)}  value={city}/>
+                <button type="submit" className="search-btn">Search</button>
             </form>
-            <h4>city:{weather.city}</h4>
-            <h4>humidity:{weather.humidity}%</h4>
-            <h4>Temp: {weather.temp}</h4>
-            <h4>disc: {weather.description}</h4> 
+            { error? (<div className="error">
+                        <p className="messages">Please enter a known city.</p>
+                    </div>):weather.city ? (
+                    <div className="weather-headings-container">
+                        <h4 className="weather-headings">City:{weather.city}</h4>
+                        <h4 className="weather-headings" >Humidity:{weather.humidity + " %"}</h4>
+                        <h4 className="weather-headings">Temp: {weather.temp}</h4>
+                        <h4 className   = "weather-headings">Discription:  {weather.description}</h4> 
+                    </div>
+                ) : (
+                <div className="no-weather">
+                    <p className="messages">Please search for a city to see weather data.</p>
+                </div>
+            )}
         </div>
         
     );
