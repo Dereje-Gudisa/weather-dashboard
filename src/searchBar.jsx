@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function SearchBar(){
+function SearchBar({ setRecentData }){
 
     const [city, setCity] = useState("");
     const [weather, setWeather] = useState("");
@@ -39,9 +39,10 @@ function SearchBar(){
         const {name: city,
                main: {humidity, temp}, 
                weather:[{id, description}] } = data;
-        console.log(city + "," + humidity +  "," + id);
-
+        console.log(city + "," + humidity +  "," + id + "," + temp + "," + description);
         setWeather({city, humidity, temp, id, description})
+        let newCity = {city, humidity, temp, id, description}
+        setRecentData(prev => [...prev, newCity]);
     };
 
     return(
