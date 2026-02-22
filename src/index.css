@@ -42,17 +42,14 @@
 }
 
 .weather-headings{
-    color:rgb(81, 81, 81);
-
-}
-
-.weather-headings-container{
-    background-color: rgb(241, 241, 241);
+    color:white;
+    margin: 15px 0px 15px 5px;
 }
 
 .recent-headings{
     margin:5px;
     font-size: 1.5rem;
+
 }
 .recent-lists{
     margin: 5px;
@@ -61,14 +58,66 @@
 .each-recent-list{
     margin-top:10px;
     font-size: 1.1rem;
-    background-color: rgb(123, 125, 132);
+    background-color: rgb(149, 150, 126);
     text-align: center;
     min-width:fit-content;
     color:white;
     margin: 10px;
     padding: 2px;
+    border-radius: 10px;
 }
 
 .messages{
-    color:grey;
+    color:red;
+}
+
+.weather-headings-container{
+    display: ;
+    background-color: rgb(241, 241, 241);
+    
+}
+
+.small-card{
+    margin: 10px;
+    background-image: url("assets/rain.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    border-radius: 20px;
+    min-height: 200px;
+
+}
+
+.top-description{
+    line-height: 0;
+    margin-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+.bottom-description{
+    margin-left: 10px;
+}
+.outside-card{
+    color:white;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(154, 154, 154);
+}
+.weather-description{
+    margin-top: 50px;
+}
+
+h5{
+    font-size: 0.6rem;
+    color:white;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.date-description{
+
+}
+
+.percent{
+    font-size: 0.7rem;
 }

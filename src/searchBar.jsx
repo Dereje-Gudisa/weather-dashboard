@@ -1,10 +1,19 @@
 import { useState } from "react";
+import { ImLocation } from "react-icons/im";
+import { TbTemperatureCelsius } from "react-icons/tb";
+import { FaPercent } from "react-icons/fa";
+
+
+
 
 function SearchBar({ setRecentData, weather, setWeather }){
 
     const [city, setCity] = useState("");
     //const [weather, setWeather] = useState("");   
     const [error, setError] = useState(false);
+    
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const currentDate = new Date().toLocaleDateString(undefined, options);
 
     async function getWeatherData(city){
         const apiKey = "813f9e6b231ee48528557a605da1cb88";
@@ -56,11 +65,20 @@ function SearchBar({ setRecentData, weather, setWeather }){
             { error? (<div className="error">
                         <p className="messages">Please enter a known city.</p>
                     </div>):weather.city ? (
+                        
                     <div className="weather-headings-container">
-                        <h4 className="weather-headings">City:{weather.city}</h4>
-                        <h4 className="weather-headings" >Humidity:{weather.humidity + " %"}</h4>
-                        <h4 className="weather-headings">Temp: {weather.temp}</h4>
-                        <h4 className   = "weather-headings">Discription:  {weather.description}</h4> 
+                        <div className="small-card">
+                            <div className="top-description">
+                                <h4 className="weather-headings date-description"><ImLocation />{weather.city}</h4>
+                                <h5 className="date-description">{currentDate}</h5>
+                                <h4 className = "weather-headings weather-description ">{weather.description}</h4>
+                            </div>
+                            <div className="bottom-description">
+                                <h4 className="weather-headings">{Math.floor(weather.temp)}<TbTemperatureCelsius /></h4>  
+                            </div>
+                        </div>
+                         <h4 className="weather-headings outside-card" >Humidity:{weather.humidity + " "}<FaPercent className="percent"/></h4>
+                         <h4 className="weather-headings outside-card" >wind speed:{weather.humidity + " m/s "}</h4>
                     </div>
                 ) : (
                 <div className="no-weather">
